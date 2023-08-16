@@ -1,0 +1,254 @@
+// global variables
+:root {
+    --backgroundColor: #141414;
+    --lightWhiteText: #ACACAC;
+    --gold: #FFD586;
+}
+
+// setting global properties (default)
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'IM Fell Double Pica', serif;
+    font-weight: 400;
+    background-color: var(--backgroundColor);
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+// custom fonts
+@font-face {
+    font-family: ImprintMTShadow;
+    src: url('../../assets/fonts/ImprintMTShadow.ttf');
+}
+
+.left-container {
+    width: 575px;
+    height: 100%;
+    background-color: var(--backgroundColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 5;
+    border-right: solid 2px var(--gold);
+
+    animation: normalize-left-container 2s ease .5s both;
+
+    .login-box {
+        height: 55%;
+        width: 60%;
+        margin-bottom: 100px;
+
+        animation: slide-in-bottom .5s ease 2.5s both;
+
+        .heading{
+            font-family: ImprintMTShadow;
+            font-style: normal;
+            font-weight: 500px;
+            font-size: 100px;
+            line-height: 125px;
+            margin-bottom: 60px;
+            color: var(--gold);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            color: white;
+
+            input {
+                width: 100%;
+                height: 70px;
+                background-color: transparent;
+                font-family: 'IM FELL Double Pica';
+                font-weight: 400;
+                font-size: 25px;
+                line-height: 44px;
+                padding-left: 40px;
+                padding-right: 40px;
+                margin-bottom: 25px;
+                border: 1px solid var(--lightWhiteText);
+                border-radius: 10px;
+                color: #c4c4c4;
+                
+            }
+            .confirm-pass{
+                display: none;
+                transition: all 1s ease;
+            }
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: #5f5f5f;
+                opacity: 1; /* Firefox */
+            }
+            input:focus {
+                outline: none;
+            }
+            
+
+            div {
+                width: 100%;
+                height: 70px;
+                padding: 5px;
+                border: 1px solid var(--gold);
+                border-radius: 10px;
+                margin-top: 20px;
+                margin-bottom: 0;
+
+                .submit {
+                    height: 100%;
+                    width: 100%;
+                    font-family: 'IM FELL Double Pica';
+                    font-weight: 400;
+                    font-size: 25px;
+                    line-height: 45px;
+                    color: var(--gold);
+                    border: none;
+                    cursor: pointer;
+                }
+                .submit:hover {
+                    background-color: var(--gold);
+                    color: black;
+                    transition: all .6s ease;
+                }
+            }
+
+            .create-acc {
+                font-family: 'IM Fell Double Pica', serif;
+                color:#535353;
+                font-size: 20px;
+                margin-top: 20px;
+                text-decoration: underline;
+                cursor: pointer;
+                width: fit-content;
+            }
+            .create-acc:hover {
+                color: var(--gold);
+                transition: all .6s ease;
+            }
+        }
+    }
+}
+
+.right-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+
+    .login-banner{
+        position: relative;
+        right: -400px;
+        top: 0px;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+
+    .left-container {
+        width: 100%;
+    }
+
+    .border-line {
+        display: none;
+    }
+
+    .right-container {
+        display: none;
+    }
+
+}
+
+@keyframes login-box-increase {
+    0% {
+        width: 575px;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes scale-up {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes normalize-left-container {
+    0% {
+        width: 101%;
+    }
+
+    100% {
+        width: 575px;
+    }
+}
+
+@keyframes slide-in-top {
+    0% {
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out-top {
+    0% {
+        transform: translateY(0) scale(.8);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-50px) scale(.8);
+        opacity: 0;
+    }
+}
+
+@keyframes kenburns-bottom {
+
+    0% {
+            -webkit-transform: scale(1.25) translateY(15px);
+            transform: scale(1.25) translateY(15px);
+            -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+        }
+    100% {
+        -webkit-transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0);
+        -webkit-transform-origin: 50% 84%;
+        transform-origin: 50% 84%;
+    }
+
+    
+}
+
+@keyframes slide-in-bottom {
+    0% {
+        transform: translateY(50px) scale(1);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}

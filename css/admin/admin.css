@@ -1,0 +1,189 @@
+:root {
+  --backgroundColor: #141414;
+  --lightWhiteText: #ACACAC;
+  --gold: #FFD586;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "IM Fell Double Pica", serif;
+  font-weight: 400;
+  background-color: var(--backgroundColor);
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+body a:link {
+  color: var(--lightWhiteText);
+  text-decoration: none;
+}
+body a:visited {
+  color: var(--lightWhiteText);
+  text-decoration: none;
+}
+body a:hover {
+  color: var(--lightWhiteText);
+}
+body a:active {
+  color: var(--lightWhiteText);
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px var(--backgroundColor);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(37, 37, 37);
+}
+
+@font-face {
+  font-family: ImprintMTShadow;
+  src: url("../../assets/fonts/ImprintMTShadow.ttf");
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.container .header {
+  display: flex;
+  -webkit-animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.container .header .heading {
+  color: var(--gold);
+  font-family: ImprintMTShadow;
+  font-size: 70px;
+}
+.container .header a {
+  margin-right: 80px;
+  -webkit-animation: spin-linear 3s linear 0s infinite;
+          animation: spin-linear 3s linear 0s infinite;
+}
+.container .header a img {
+  height: 80px;
+  width: 80px;
+}
+
+.uploads-container {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  -webkit-animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+          animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+.uploads-container .item-container {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px var(--gold);
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.uploads-container .item-container .item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.uploads-container .item-container .item .image-box {
+  height: 100px;
+  width: 200px;
+  background-color: black;
+  overflow: hidden;
+}
+.uploads-container .item-container .item .image-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.uploads-container .item-container .item .info {
+  display: flex;
+  width: 50%;
+  margin-left: 30px;
+  justify-content: space-between;
+}
+.uploads-container .item-container .item .info .title {
+  color: var(--lightWhiteText);
+  font-size: 20px;
+}
+.uploads-container .item-container .item .info .title span {
+  color: var(--gold);
+}
+.uploads-container .item-container .item .info .user {
+  color: var(--lightWhiteText);
+  font-size: 20px;
+}
+.uploads-container .item-container .item .info .user span {
+  color: var(--gold);
+}
+.uploads-container .item-container .delete {
+  margin-right: 40px;
+}
+.uploads-container .item-container .delete img {
+  height: 40px;
+}
+.uploads-container .item-container .delete:hover {
+  transform: scale(1.1);
+}
+.uploads-container .item-container:hover {
+  transform: scale(1.01);
+}
+
+@-webkit-keyframes spin-linear {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-linear {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=admin.css.map */

@@ -1,0 +1,294 @@
+:root {
+  --backgroundColor: #141414;
+  --lightWhiteText: #ACACAC;
+  --gold: #FFD586;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "IM Fell Double Pica", serif;
+  font-weight: 400;
+  background-color: var(--backgroundColor);
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: ImprintMTShadow;
+  src: url("../../assets/fonts/ImprintMTShadow.ttf");
+}
+.left-container {
+  width: 575px;
+  height: 100%;
+  background-color: var(--backgroundColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 5;
+  border-right: solid 2px var(--gold);
+  -webkit-animation: normalize-left-container 2s ease 0.5s both;
+          animation: normalize-left-container 2s ease 0.5s both;
+}
+.left-container .login-box {
+  height: 55%;
+  width: 60%;
+  margin-bottom: 100px;
+  -webkit-animation: slide-in-bottom 0.5s ease 2.5s both;
+          animation: slide-in-bottom 0.5s ease 2.5s both;
+}
+.left-container .login-box .heading {
+  font-family: ImprintMTShadow;
+  font-style: normal;
+  font-weight: 500px;
+  font-size: 100px;
+  line-height: 125px;
+  margin-bottom: 60px;
+  color: var(--gold);
+}
+.left-container .login-box form {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.left-container .login-box form input {
+  width: 100%;
+  height: 70px;
+  background-color: transparent;
+  font-family: "IM FELL Double Pica";
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 44px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-bottom: 25px;
+  border: 1px solid var(--lightWhiteText);
+  border-radius: 10px;
+  color: #c4c4c4;
+}
+.left-container .login-box form .confirm-pass {
+  display: none;
+  transition: all 1s ease;
+}
+.left-container .login-box form ::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #5f5f5f;
+  opacity: 1; /* Firefox */
+}
+.left-container .login-box form :-ms-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #5f5f5f;
+  opacity: 1; /* Firefox */
+}
+.left-container .login-box form ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #5f5f5f;
+  opacity: 1; /* Firefox */
+}
+.left-container .login-box form input:focus {
+  outline: none;
+}
+.left-container .login-box form div {
+  width: 100%;
+  height: 70px;
+  padding: 5px;
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.left-container .login-box form div .submit {
+  height: 100%;
+  width: 100%;
+  font-family: "IM FELL Double Pica";
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 45px;
+  color: var(--gold);
+  border: none;
+  cursor: pointer;
+}
+.left-container .login-box form div .submit:hover {
+  background-color: var(--gold);
+  color: black;
+  transition: all 0.6s ease;
+}
+.left-container .login-box form .create-acc {
+  font-family: "IM Fell Double Pica", serif;
+  color: #535353;
+  font-size: 20px;
+  margin-top: 20px;
+  text-decoration: underline;
+  cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.left-container .login-box form .create-acc:hover {
+  color: var(--gold);
+  transition: all 0.6s ease;
+}
+
+.right-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+.right-container .login-banner {
+  position: relative;
+  right: -400px;
+  top: 0px;
+  height: 100%;
+}
+
+@media screen and (max-width: 850px) {
+  .left-container {
+    width: 100%;
+  }
+  .border-line {
+    display: none;
+  }
+  .right-container {
+    display: none;
+  }
+}
+@-webkit-keyframes login-box-increase {
+  0% {
+    width: 575px;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes login-box-increase {
+  0% {
+    width: 575px;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@-webkit-keyframes scale-up {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-up {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes normalize-left-container {
+  0% {
+    width: 101%;
+  }
+  100% {
+    width: 575px;
+  }
+}
+@keyframes normalize-left-container {
+  0% {
+    width: 101%;
+  }
+  100% {
+    width: 575px;
+  }
+}
+@-webkit-keyframes slide-in-top {
+  0% {
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slide-out-top {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px) scale(0.8);
+    opacity: 0;
+  }
+}
+@keyframes slide-out-top {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px) scale(0.8);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes kenburns-bottom {
+  0% {
+    transform: scale(1.25) translateY(15px);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    transform-origin: 50% 84%;
+  }
+}
+@keyframes kenburns-bottom {
+  0% {
+    transform: scale(1.25) translateY(15px);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    transform-origin: 50% 84%;
+  }
+}
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    transform: translateY(50px) scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(50px) scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=login.css.map */

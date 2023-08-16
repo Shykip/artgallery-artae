@@ -1,0 +1,298 @@
+// global variables
+:root {
+    --backgroundColor: #141414;
+    --lightWhiteText: #ACACAC;
+    --gold: #FFD586;
+}
+
+// setting global properties (default)
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'IM Fell Double Pica', serif;
+    font-weight: 400;
+    background-color: var(--backgroundColor);
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a:link {
+        color: var(--lightWhiteText);
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: var(--lightWhiteText);
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: var(--lightWhiteText);
+    }
+
+    a:active {
+        color: var(--lightWhiteText);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px var(--backgroundColor);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(37, 37, 37);
+}
+
+
+// custom fonts
+@font-face {
+    font-family: ImprintMTShadow;
+    src: url('../../assets/fonts/ImprintMTShadow.ttf');
+}
+
+// navigation bar proporties
+.navigation {
+    display: flex;
+    justify-content: center;
+
+    .nav-bar {
+        display: flex;
+        height: clamp(80px, 15vw, 150px);
+        width: clamp(375px, 90vw, 1685px);
+        justify-content: space-between;
+        z-index: 50;
+
+        .nav-left {
+            display: flex;
+            justify-content: space-between;
+            justify-content: left;
+            align-items: center;
+            font-size: 1.9rem;
+            letter-spacing: -0.02em;
+            color: var(--lightWhiteText);
+            width: 30%;
+
+            p {
+                margin-right: 25%;
+
+                a:hover {
+                    color: var(--gold);
+                }
+            }
+        }
+
+        .nav-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
+
+            font-family: ImprintMTShadow;
+
+            p {
+                a {
+                    font-size: 4rem;
+                    color: white;
+                }
+
+                a:hover {
+                    color: var(--gold);
+                }
+            }
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            font-size: 1.9rem;
+            letter-spacing: -0.02em;
+            color: var(--lightWhiteText);
+            width: 30%;
+
+            a:hover {
+                color: var(--gold);
+            }
+
+            .logout-btn {
+                margin-left: 25%;
+
+                .logout-btn-image {
+                    height: 40px;
+                    width: 39px;
+                    content: url('../../assets/images/logout-grey.png');
+                }
+
+                .logout-btn-image:hover {
+                    content: url('../../assets/images/logout-gold.png');
+                }
+
+            }
+
+
+        }
+
+        .menu-icon {
+            display: none;
+            width: 50%;
+            justify-content: right;
+            align-items: center;
+        }
+    }
+}
+
+.item-view-container {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 6vh;
+    margin-right: 5%;
+    margin-left: 5%;
+    border: solid 1px var(--gold);
+    border-radius: 20px;
+    padding: 15px;
+
+    animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+    .image-view-box {
+        display: flex;
+        height: 70vh;
+        
+
+        .image{
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .info-container {
+            margin-left: 20px;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .item-header {
+
+                .title {
+                    color: var(--gold);
+                    font-size: clamp(40px,3.5vw,3.5vw);
+                    font-family: ImprintMTShadow;
+                }
+
+                .artist {
+                    margin-top: 15px;
+                    color: white;
+                    font-size: clamp(20px, 1.7vw, 1.7vw);
+                }
+            }
+
+            .item-description {
+                font-size: clamp(15px,1.4vw,1.4vw);
+                margin-top: 40px;
+                height: 50%;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                color: var(--lightWhiteText);
+            }
+
+            .date {
+                display: flex;
+                width: 100%;
+                margin-top: 20px;
+                justify-content: space-between;
+
+                .delete-button {
+                    height: fit-content;
+                    width: fit-content;
+                    
+                    .delete {
+                        display: flex;
+                        align-items: center;
+                        padding-top: 15px;
+                
+                        img {
+                            height: 40px;
+                        }
+                    }
+                    
+                    .delete:hover {
+                        transform: scale(1.1);
+                    }
+                }
+
+                
+
+                p {
+                    color: var(--gold);
+                    font-size: clamp(20px, 2vw, 2vw);
+
+                    span {
+                        font-size: clamp(25px, 2.7vw, 2.7vw);
+                        font-family: ImprintMTShadow;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+
+    .navigation {
+        .nav-bar {
+            width: clamp(300px, 80vw, 1685px);
+
+            .nav-left {
+                display: none;
+            }
+
+            .nav-center {
+                width: 50%;
+                justify-content: left;
+            }
+
+            .nav-right {
+                display: none;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+        }
+    }
+}
+
+@keyframes slide-in-bottom {
+    0% {
+        transform: translateY(1000px) scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}

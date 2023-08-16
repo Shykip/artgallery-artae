@@ -1,0 +1,259 @@
+:root {
+  --backgroundColor: #141414;
+  --lightWhiteText: #ACACAC;
+  --gold: #FFD586;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "IM Fell Double Pica", serif;
+  font-weight: 400;
+  background-color: var(--backgroundColor);
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body a:link {
+  color: var(--lightWhiteText);
+  text-decoration: none;
+}
+body a:visited {
+  color: var(--lightWhiteText);
+  text-decoration: none;
+}
+body a:hover {
+  color: var(--lightWhiteText);
+}
+body a:active {
+  color: var(--lightWhiteText);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px var(--backgroundColor);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(37, 37, 37);
+}
+
+@font-face {
+  font-family: ImprintMTShadow;
+  src: url("../../assets/fonts/ImprintMTShadow.ttf");
+}
+.navigation {
+  display: flex;
+  justify-content: center;
+}
+.navigation .nav-bar {
+  display: flex;
+  height: clamp(80px, 15vw, 150px);
+  width: clamp(375px, 90vw, 1685px);
+  justify-content: space-between;
+  z-index: 50;
+}
+.navigation .nav-bar .nav-left {
+  display: flex;
+  justify-content: space-between;
+  justify-content: left;
+  align-items: center;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+  color: var(--lightWhiteText);
+  width: 30%;
+}
+.navigation .nav-bar .nav-left p {
+  margin-right: 25%;
+}
+.navigation .nav-bar .nav-left p a:hover {
+  color: var(--gold);
+}
+.navigation .nav-bar .nav-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  font-family: ImprintMTShadow;
+}
+.navigation .nav-bar .nav-center p a {
+  font-size: 4rem;
+  color: white;
+}
+.navigation .nav-bar .nav-center p a:hover {
+  color: var(--gold);
+}
+.navigation .nav-bar .nav-right {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+  color: var(--lightWhiteText);
+  width: 30%;
+}
+.navigation .nav-bar .nav-right a:hover {
+  color: var(--gold);
+}
+.navigation .nav-bar .nav-right .logout-btn {
+  margin-left: 25%;
+}
+.navigation .nav-bar .nav-right .logout-btn .logout-btn-image {
+  height: 40px;
+  width: 39px;
+  content: url("../../assets/images/logout-grey.png");
+}
+.navigation .nav-bar .nav-right .logout-btn .logout-btn-image:hover {
+  content: url("../../assets/images/logout-gold.png");
+}
+.navigation .nav-bar .menu-icon {
+  display: none;
+  width: 50%;
+  justify-content: right;
+  align-items: center;
+}
+
+.item-view-container {
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 6vh;
+  margin-right: 5%;
+  margin-left: 5%;
+  border: solid 1px var(--gold);
+  border-radius: 20px;
+  padding: 15px;
+  -webkit-animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.item-view-container .image-view-box {
+  display: flex;
+  height: 70vh;
+}
+.item-view-container .image-view-box .image {
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+.item-view-container .image-view-box .image img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.item-view-container .image-view-box .info-container {
+  margin-left: 20px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.item-view-container .image-view-box .info-container .item-header .title {
+  color: var(--gold);
+  font-size: clamp(40px, 3.5vw, 3.5vw);
+  font-family: ImprintMTShadow;
+}
+.item-view-container .image-view-box .info-container .item-header .artist {
+  margin-top: 15px;
+  color: white;
+  font-size: clamp(20px, 1.7vw, 1.7vw);
+}
+.item-view-container .image-view-box .info-container .item-description {
+  font-size: clamp(15px, 1.4vw, 1.4vw);
+  margin-top: 40px;
+  height: 50%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  color: var(--lightWhiteText);
+}
+.item-view-container .image-view-box .info-container .date {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+.item-view-container .image-view-box .info-container .date .delete-button {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.item-view-container .image-view-box .info-container .date .delete-button .delete {
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+}
+.item-view-container .image-view-box .info-container .date .delete-button .delete img {
+  height: 40px;
+}
+.item-view-container .image-view-box .info-container .date .delete-button .delete:hover {
+  transform: scale(1.1);
+}
+.item-view-container .image-view-box .info-container .date p {
+  color: var(--gold);
+  font-size: clamp(20px, 2vw, 2vw);
+}
+.item-view-container .image-view-box .info-container .date p span {
+  font-size: clamp(25px, 2.7vw, 2.7vw);
+  font-family: ImprintMTShadow;
+}
+
+@media screen and (max-width: 850px) {
+  .navigation .nav-bar {
+    width: clamp(300px, 80vw, 1685px);
+  }
+  .navigation .nav-bar .nav-left {
+    display: none;
+  }
+  .navigation .nav-bar .nav-center {
+    width: 50%;
+    justify-content: left;
+  }
+  .navigation .nav-bar .nav-right {
+    display: none;
+  }
+  .navigation .nav-bar .menu-icon {
+    display: flex;
+  }
+}
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=item_view.css.map */
