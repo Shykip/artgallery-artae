@@ -71,7 +71,7 @@
             <textarea name="description" placeholder="Description" class="description" required autocomplete="off" maxlength="5000"></textarea>
             <input type="date" name="date" required autocomplete="off" class="date">
             <input type="file" name="file" required class="file">
-                
+            <input type="submit" class="submit" name="submit" value="submit">
         </form>
     </sectiom>
 </body>

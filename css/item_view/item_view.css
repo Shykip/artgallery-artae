@@ -127,10 +127,8 @@ body a:active {
 
 .item-view-container {
   display: flex;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   margin-top: 6vh;
@@ -139,8 +137,7 @@ body a:active {
   border: solid 1px var(--gold);
   border-radius: 20px;
   padding: 15px;
-  -webkit-animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-          animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 .item-view-container .image-view-box {
   display: flex;
@@ -192,10 +189,8 @@ body a:active {
   justify-content: space-between;
 }
 .item-view-container .image-view-box .info-container .date .delete-button {
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -235,16 +230,6 @@ body a:active {
   }
   .navigation .nav-bar .menu-icon {
     display: flex;
-  }
-}
-@-webkit-keyframes slide-in-bottom {
-  0% {
-    transform: translateY(1000px) scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
   }
 }
 @keyframes slide-in-bottom {
