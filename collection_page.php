@@ -1,12 +1,36 @@
 <?php
-    if (!isset($_SESSION)) {
-        session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+    $username = $_SESSION['user'];
+} else {
+    $username = "SignIn";
+}
+
+// Database connection details
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "artae";
+
+$connection = new mysqli($servername, $username, $password, $database);
+if ($connection->connect_error) {
+    die("Connection failed: " . $connection->connect_error);
+}
+
+// Search logic
+$searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
+$searchResults = [];
+if ($searchQuery !== '') {
+    $query = "SELECT * FROM images WHERE title LIKE '%$searchQuery%' OR description LIKE '%$searchQuery%'";
+    $result = $connection->query($query);
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $searchResults[] = $row;
+        }
     }
-    if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
-        $username = $_SESSION['user'];
-    }else {
-        $username = "SignIn";
-    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,69 +40,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>artae - Collection</title>
 
-    <!-- linking css -->
     <link rel="stylesheet" href="./css/collection/collection.css">
-
-    <!-- linking custom font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica:ital@0;1&display=swap" rel="stylesheet">
-    <link href="https://www.dafontfree.net/embed/aW1wcmludC1tdC1zaGFkb3ctcmVndWxhciZkYXRhLzI1L2kvMTI5NjcxL0ltcHJpbnRNVFNoYWRvdy50dGY" rel="stylesheet" type="text/css"/>
-
-    <script src="./javascript/collection.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica:ital@0;1&display=swap">
 </head>
 <body>
-
     <section class="navigation">
         <?php include "./web_components/nav_bar.php"; ?>
     </section>
 
-    <div class="sort-bar-container">
-        <img src="./assets/images/star.png" alt="" class="star">
-        <div class="sort-bar">
-            <div class="trending">
-                <p>Trending</p>
-            </div>
-            <div class="latest">
-                <p>Latest</p>
-            </div>
-        </div>
-        
+    <div class="search-bar-container">
+        <form method="GET" action="">
+            <input type="text" name="search" placeholder="Search for art..." value="<?= htmlspecialchars($searchQuery) ?>">
+            <button type="submit">Search</button>
+        </form>
     </div>
+
+    
     
     <section class="items-container">
-
-        <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $database = "artae";
-    
-            // Create connection
-            $connection = new mysqli($servername, $username, $password, $database);
-    
-            // Check connection
-            if ($connection->connect_error) {
-                die("Connection failed: " . $connection->connect_error);
-            }
-            $query = "SELECT * FROM images ORDER BY id DESC;";
-            $result = $connection->query($query); 
-
-            if ($result) {
-                while ($row = mysqli_fetch_array($result)) {
-                    ?>
-
+        <?php if (!empty($searchQuery)): ?>
+            <?php if (!empty($searchResults)): ?>
+                <?php foreach ($searchResults as $row): ?>
                     <a href="./item_view_page.php?id=<?= $row['id'] ?>" class="item-card">
-                        <img src="./assets/images/ring.png" alt="" class="ring">
                         <div class="image-box">
-                            <img src="<?= $row['destination'] ?>">
+                            <img src="<?= $row['destination'] ?>" alt="<?= htmlspecialchars($row['title']) ?>" loading="lazy">
                         </div>
+                        <p><?= htmlspecialchars($row['title']) ?></p>
+                        <p><?= htmlspecialchars($row['description']) ?></p>
                     </a>
-
-                    <?php
-                }
-            }
-        ?>
-
+                <?php endforeach; ?>
+            <?php else: ?>
+                <h2>No results found for "<?= htmlspecialchars($searchQuery) ?>"</h2>
+            <?php endif; ?>
+        <?php else: ?>  
+            <?php
+            $query = "SELECT * FROM images ORDER BY date DESC";
+            $result = $connection->query($query);
+            while ($row = $result->fetch_assoc()): ?>
+                <a href="./item_view_page.php?id=<?= $row['id'] ?>" class="item-card">
+                    <div class="image-box">
+                        <img src="<?= $row['destination'] ?>" alt="<?= htmlspecialchars($row['title']) ?>" loading="lazy">
+                    </div>
+                    <p class="item-info"><?= htmlspecialchars($row['title']) ?></p>
+                    <p class="item-info"><?= htmlspecialchars($row['description']) ?></p>
+                </a>
+            <?php endwhile; ?>
+        <?php endif; ?>
     </section>
-
 </body>
 </html>

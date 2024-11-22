@@ -151,7 +151,7 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-.sort-bar-container {
+.search-bar-container {
     display: flex;
     margin-left: 10%;
     margin-right: 10%;
@@ -159,13 +159,17 @@ body::-webkit-scrollbar-thumb {
     margin-top: 50px;
     margin-bottom: 50px;
 
-    .star {
-        display: flex;
-        height: 70px;
-        width: 70px;
-        margin-right: 50px;
-
-        animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    input{
+        height: 40px;
+        width: 300px;
+        background-color: #141414;
+        border: solid 1px #ACACAC;
+        border-radius: 10px;
+    }
+    button{
+        height: 40px;
+        width: 100px;
+        
     }
 
     .sort-bar {
@@ -224,6 +228,11 @@ body::-webkit-scrollbar-thumb {
 
     animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
+    h2{
+        font-size: 30px;
+        color: var(--gold);
+    }
+
     .item-card {
         display: flex;
         border-radius: 30px;
@@ -235,10 +244,6 @@ body::-webkit-scrollbar-thumb {
         margin: 15px;
 
         cursor: pointer;
-
-        .ring {
-            display: none;
-        }
 
         .image-box{
             display: flex;
